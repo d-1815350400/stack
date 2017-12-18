@@ -77,4 +77,21 @@ public class Stack<A> implements Iterable<A>{
             return item;
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other instanceof Stack<?>) {
+            Iterator<?> iter1 = iterator();
+            Iterator<?> iter2 = ((Stack<?>) other).iterator();
+            while (iter1.hasNext() && iter2.hasNext()) {
+                if (!iter1.next().equals(iter2.next())) {
+                    return false;
+                }
+            }
+
+            return iter1.hasNext() == iter2.hasNext();
+        }
+
+        return false;
+    }
 }
