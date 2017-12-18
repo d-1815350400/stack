@@ -2,6 +2,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class StackTest {
     @Test
@@ -28,6 +29,16 @@ public class StackTest {
 
         assertFalse(stack1.equals(stack2));
         assertFalse(stack2.equals(stack1));
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void testTopNoSuchElementException() {
+        new Stack<Object>().top();
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void testPopNoSuchElementException() {
+        new Stack<Object>().pop();
     }
 
     @Test
