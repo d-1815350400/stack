@@ -31,6 +31,22 @@ public class StackTest {
     }
 
     @Test
+    public void testPushPop() {
+        Stack<Integer> stack = new Stack<>();
+
+        assertTrue(stack.isEmpty());
+
+        stack.push(1);
+
+        assertFalse(stack.isEmpty());
+
+        int i = stack.pop();
+
+        assertTrue(stack.isEmpty());
+        assertEquals(i, 1);
+    }
+
+    @Test
     public void testIterator() {
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
